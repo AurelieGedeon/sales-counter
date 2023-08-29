@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Modal from "../Modal/Modal";
 
 export default function Counter() {
   const [counter, setCounter] = useState(0);
@@ -42,6 +43,7 @@ export default function Counter() {
             {button.name}
           </button>
         ))}
+        <Modal />
       </div>
     </>
   );
