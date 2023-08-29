@@ -19,7 +19,12 @@ function App() {
       name: 'eyeliner',
       price: 6.99,
       inventory: 100
-    }
+    },
+    {
+      name:'blush',
+      price: 12.50,
+      inventory: 75
+  }
   ]
   let totalInventory = reoccurringButtons.reduce((accumulator, button) => {
     return accumulator + button.inventory
