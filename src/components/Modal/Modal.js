@@ -1,12 +1,23 @@
 import "./Modal.css";
 import "./Modal.css";
 import { useState } from "react";
+import { useSpring, animated } from "react-spring"
 
 export default function Modal() {
   const [modal, setModal] = useState(false);
+  const [flip, setFlip] = useState(false)
+
+  const props = useSpring({
+    to: { opacity: 1 },
+    from: { opacity: 0 },
+    reset: true,
+    reverse: flip,
+    delay: 200
+  })
 
   const toggleModal = () => {
-    setModal(!modal);
+    setModal(!modal)
+    setFlip(!flip)
   };
 
   return (
@@ -15,7 +26,7 @@ export default function Modal() {
         Add Button
       </button>
       {modal && (
-        <div className="modal">
+        <animated.div className="modal" style={props}>
             <div className="overlay" onClick={toggleModal}></div>
             <div className="modal-content">
             <h2>Hello Modal!</h2>
@@ -24,7 +35,7 @@ export default function Modal() {
             </p>
             <button className="close-modal" onClick={toggleModal}>X</button>
             </div>
-        </div>
+        </animated.div>
 
       )}
     </>
