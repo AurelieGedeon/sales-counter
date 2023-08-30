@@ -22,7 +22,7 @@ const dropIn = {
   },
 };
 
-export default function Modal2({ handleClose, text }) {
+export default function Modal({ handleClose, children }) {
   return (
     <Backdrop onClick={handleClose}>
       <motion.div
@@ -34,9 +34,18 @@ export default function Modal2({ handleClose, text }) {
         animate="visible"
         exit="exit"
       >
-        <p>{text}</p>
-        <button onClick={handleClose}>Close</button>
+        <button className="close-button" onClick={handleClose}>
+          X
+        </button>
+        {children}
       </motion.div>
     </Backdrop>
   );
 }
+
+const ModalText = ({ text }) => (
+  <div className="modal-text">
+    <h3>{text}</h3>
+    <motion.select></motion.select>
+  </div>
+);

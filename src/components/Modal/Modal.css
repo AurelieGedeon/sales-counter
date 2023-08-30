@@ -15,4 +15,19 @@
 
 .orange-gradient {
     background: var(--gradient);
-  }
+}
+
+.close-button {
+padding: 0 2rem;
+height: 2.5rem;
+margin: 0.2rem auto 0.1rem 0;
+background: #101111;
+/* border: 1px dashed #9a9a9a99; */
+color: #ffaa00;
+border-radius: 4px;
+transition: background ease 400ms;
+box-shadow: 1px 1px 15px #03030399;
+position: absolute;
+right: 0;
+top: 0;
+}
