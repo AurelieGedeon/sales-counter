@@ -2,7 +2,6 @@ import "./Counter.css";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Modal from "../Modal/Modal";
-import Modal2 from "../Modal2/Modal2";
 
 export default function Counter() {
   const [counter, setCounter] = useState(0);
@@ -44,13 +43,18 @@ export default function Counter() {
     <>
       <h1> Counter: {counter.toFixed(2)} </h1>
       <div className="button-container">
-        <button onClick={() => setCounter(0)}> RESET </button>
+        <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }} 
+        onClick={() => setCounter(0)}> RESET </motion.button>
         {reoccurringButtons.map((button) => (
-          <button onClick={() => handleButtonClick(button.price)}>
+          <motion.button 
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => handleButtonClick(button.price)}>
             {button.name}
-          </button>
+          </motion.button>
         ))}
-        <Modal />
         <div>
           <motion.button
           whileHover={{ scale: 1.1 }}
@@ -63,7 +67,7 @@ export default function Counter() {
           initial={false}
           mode="wait"
           onExitComplete={() => null}>
-            {modalOpen && <Modal2 modalOpen={modalOpen} handleClose={close} />}
+            {modalOpen && <Modal modalOpen={modalOpen} handleClose={close} />}
           </AnimatePresence>
 
         </div>

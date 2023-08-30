@@ -1,43 +1,42 @@
+import { motion } from "framer-motion";
+import Backdrop from "../Backdrop/Backdrop";
 import "./Modal.css";
-import "./Modal.css";
-import { useState } from "react";
-import { useSpring, animated } from "react-spring"
+const dropIn = {
+  hidden: {
+    y: "-100vh",
+    opacity: 0,
+  },
+  visible: {
+    y: "0",
+    opacity: 1,
+    transition: {
+      duration: 0.1,
+      type: "spring",
+      damping: 25,
+      stiffness: 500,
+    },
+    exit: {
+      y: "100vh",
+      opacity: 0,
+    },
+  },
+};
 
-export default function Modal() {
-  const [modal, setModal] = useState(false);
-  const [flip, setFlip] = useState(false)
-
-  const props = useSpring({
-    to: { opacity: 1 },
-    from: { opacity: 0 },
-    reset: true,
-    reverse: flip,
-    delay: 200
-  })
-
-  const toggleModal = () => {
-    setModal(!modal)
-    setFlip(!flip)
-  };
-
+export default function Modal2({ handleClose, text }) {
   return (
-    <>
-      <button onClick={toggleModal} className="btn-modal">
-        Add Button
-      </button>
-      {modal && (
-        <animated.div className="modal" style={props}>
-            <div className="overlay" onClick={toggleModal}></div>
-            <div className="modal-content">
-            <h2>Hello Modal!</h2>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam maiores optio, vel modi voluptates magni, mollitia architecto nulla debitis tempore, accusantium in tempora? Tenetur expedita ea ab consequuntur praesentium? Ut amet fugit animi illum doloribus magni vel facilis laboriosam illo delectus. Fugit deleniti mollitia itaque voluptatum nulla fugiat illo at.
-            </p>
-            <button className="close-modal" onClick={toggleModal}>X</button>
-            </div>
-        </animated.div>
-
-      )}
-    </>
+    <Backdrop onClick={handleClose}>
+      <motion.div
+        drag
+        onClick={(e) => e.stopPropagation()}
+        className="modal-2 orange-gradient"
+        variants={dropIn}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+      >
+        <p>{text}</p>
+        <button onClick={handleClose}>Close</button>
+      </motion.div>
+    </Backdrop>
   );
 }
