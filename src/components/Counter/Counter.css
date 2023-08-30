@@ -1,0 +1,8 @@
+@import "../../index.css";
+
+.open-modal{
+    padding: 0 1rem;
+    margin: 2rem auto auto 0;
+    background: var(--gradient);
+    color: var(--dark)
+}
