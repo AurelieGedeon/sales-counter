@@ -1,3 +1,4 @@
+import "./Counter.css";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Modal from "../Modal/Modal";
@@ -62,7 +63,7 @@ export default function Counter() {
           initial={false}
           mode="wait"
           onExitComplete={() => null}>
-
+            {modalOpen && <Modal2 modalOpen={modalOpen} handleClose={close} />}
           </AnimatePresence>
 
         </div>

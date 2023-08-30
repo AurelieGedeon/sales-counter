@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import "./Backdrop.css";
 
 export default function Backdrop({ children, onClick }) {
   return (
