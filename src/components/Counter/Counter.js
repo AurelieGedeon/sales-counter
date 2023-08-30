@@ -50,6 +50,10 @@ export default function Counter() {
       inventory: 200
     }
   ]
+
+  const filteredMakeupList = makeupList.filter(
+    (product) => !reoccurringButtons.some((button) => button.name === product.name)
+  )
   // let totalInventory = reoccurringButtons.reduce((accumulator, button) => {
   //   return accumulator + button.inventory;
   // }, 0);
@@ -101,7 +105,7 @@ export default function Counter() {
               value={selectedProduct}
               onChange={(e) => setSelectedProduct(e.target.value)}>
                 <option value="">--Select--</option>
-                {makeupList.map((product) => (
+                {filteredMakeupList.map((product) => (
                   <option key={product.name} value={product.name}>{product.name}</option>
                 ))}
               </motion.select>
