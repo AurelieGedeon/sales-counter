@@ -6,7 +6,7 @@ export default function Modal2({ handleClose, text }) {
     <Backdrop onClick={handleClose}>
       <motion.div
         onClick={(e) => e.stopPropagation()}
-        className="modal orange-gradient"
+        className="modal-2 orange-gradient"
       ></motion.div>
     </Backdrop>
   );
