@@ -1,8 +1,14 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Modal from "../Modal/Modal";
+import Modal2 from "../Modal2/Modal2";
 
 export default function Counter() {
   const [counter, setCounter] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false)
+
+  const open = () => setModalOpen(true)
+  const close = () => setModalOpen(false)
 
   const reoccurringButtons = [
     {
@@ -44,6 +50,22 @@ export default function Counter() {
           </button>
         ))}
         <Modal />
+        <div>
+          <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className="open-modal"
+          onClick={() => (modalOpen ? close() : open())}>
+            Add Button
+          </motion.button>
+          <AnimatePresence
+          initial={false}
+          mode="wait"
+          onExitComplete={() => null}>
+
+          </AnimatePresence>
+
+        </div>
       </div>
     </>
   );
