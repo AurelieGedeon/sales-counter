@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Handjet&family=Lato:ital@0;1&family=Poppins:wght@300;400;500;600;700&family=VT323&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "VT323", monospace;
+    color: #1f1f1f;
+    font-size: 1.2rem;
+}
+
+.receipt {
+    width: 300px;
+    min-height: 60vh;
+    height: 100%;
+    background: #fff;
+    margin: 0 auto;
+    box-shadow: 5px 5px 19px #ccc;
+    padding: 10px;
+}
+  
+.logo {
+    text-align: center;
+    padding: 20px;
+    font-size: 2rem;
+}
+
+.transaction-details {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10px 10px;
+}
+
+.transaction-details .detail {
+    text-transform: uppercase;
+}

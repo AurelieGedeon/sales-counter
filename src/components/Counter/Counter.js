@@ -2,6 +2,7 @@ import "./Counter.css";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Modal from "../Modal/Modal.js";
+import Receipt from "../Receipt/Receipt";
 
 export default function Counter() {
   const [counter, setCounter] = useState(0);
@@ -73,6 +74,7 @@ export default function Counter() {
   return (
     <>
       <h1> Counter: {counter.toFixed(2)} </h1>
+      <Receipt />
       <div className="button-container">
         <motion.button
         whileHover={{ scale: 1.1 }}
